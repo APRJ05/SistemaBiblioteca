@@ -1,8 +1,7 @@
 ﻿using Biblioteca.Services;
 using Biblioteca.UI;
 
-IBookCatalog catalog = new ArrayBookCatalog(20);
-BookSeeder.Load(catalog);
+IInventory inventory = InventorySeeder.Create();
 
-MenuController menu = new MenuController(catalog);
+MenuController menu = new MenuController(inventory);
 menu.Run();

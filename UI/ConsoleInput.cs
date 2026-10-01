@@ -19,29 +19,40 @@ namespace Biblioteca.UI
             return value;
         }
 
-        public static string ReadRequiredText(string message)
+        public static int ReadIntInRange(string message, int min, int max)
         {
-            string? text;
-            do
+            int value = ReadInt(message);
+            while (value < min || value > max)
             {
-                Console.Write(message);
-                text = Console.ReadLine();
-            } while (string.IsNullOrWhiteSpace(text));
-            return text.Trim();
+                Console.Write($"Debe estar entre {min} y {max}. ");
+                value = ReadInt(message);
+            }
+            return value;
         }
 
-        public static string? ReadOptionalText(string message)
-        {
-            Console.Write(message);
-            string? text = Console.ReadLine();
-            return string.IsNullOrWhiteSpace(text) ? null : text.Trim();
-        }
+        //public static string ReadRequiredText(string message)
+        //{
+        //    string? text;
+        //    do
+        //    {
+        //        Console.Write(message);
+        //        text = Console.ReadLine();
+        //    } while (string.IsNullOrWhiteSpace(text));
+        //    return text.Trim();
+        //}
 
-        public static int? ReadOptionalInt(string message)
-        {
-            Console.Write(message);
-            string? text = Console.ReadLine();
-            return int.TryParse(text, out int value) ? value : null;
-        }
+        //public static string? ReadOptionalText(string message)
+        //{
+        //    Console.Write(message);
+        //    string? text = Console.ReadLine();
+        //    return string.IsNullOrWhiteSpace(text) ? null : text.Trim();
+        //}
+
+        //public static int? ReadOptionalInt(string message)
+        //{
+        //    Console.Write(message);
+        //    string? text = Console.ReadLine();
+        //    return int.TryParse(text, out int value) ? value : null;
+        //}
     }
 }

@@ -9,8 +9,8 @@ namespace Biblioteca.Models
     public enum OperationResult
     {
         Success,
-        CatalogFull,
-        DuplicateId,
-        NotFound
+        InvalidBook,
+        InvalidBranch,
+        InvalidQuantity
     }
 }
